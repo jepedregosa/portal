@@ -24,7 +24,7 @@ and open the template in the editor.
 
 
 
-                
+
 
 
 
@@ -45,29 +45,38 @@ and open the template in the editor.
             <input type="hidden" id ="global-batnbr">
             <input type="hidden" id ="global-reportid">
             <input type="hidden" id ="global-moduleid">
-<!--            
-            <button class="btn-material" type="button"><span>Button</span></button>
-
-<button class="btn-material orange" type="button"><span>Medium-length button</span></button>
-
-<button class="btn-material blue" type="button"><span>Medium-length button</span></button>
-
-<button class="btn-material inverse" type="button"><span>Medium-length button</span></button>
-
-<button class="btn-material red" type="button"><span>Extra-long button to let you appreciate the effect.</span></button>
--->
+            <!--            
+                        <button class="btn-material" type="button"><span>Button</span></button>
+            
+            <button class="btn-material orange" type="button"><span>Medium-length button</span></button>
+            
+            <button class="btn-material blue" type="button"><span>Medium-length button</span></button>
+            
+            <button class="btn-material inverse" type="button"><span>Medium-length button</span></button>
+            
+            <button class="btn-material red" type="button"><span>Extra-long button to let you appreciate the effect.</span></button>
+            -->
 
             <div class ="tab-content">
                 <div class ="tab-pane active" id ="approval">
-                    <div class ="container-fluid" style ="background : #fff;padding-left: 5px;padding-top:5px;padding-bottom: 5px;border-bottom: 1px solid #d0d4d8">
-                        <div class ="row">
-
-                            <div class ="col-md-12">
-                                <span style ="font-family: calibri;font-weight: bold;font-size: 15pt;" id ="Module-Name">  </span>
+                    <div class ="row tab_approvetran_module-mobile" style ="display: none">
+                        <div class ="col-md-12">
+                            <div class ="card" style ="">
+                                <ul class ="nav nav-tabs approvetran_module" role="tablist">
+                                </ul>
                             </div>
                         </div>
+
                     </div>
-                    <div class ="div-form" style="padding:0 10px 0px 10px">
+                    <!--                    <div class ="container-fluid" style ="background : #fff;padding-left: 5px;padding-top:5px;padding-bottom: 5px;border-bottom: 1px solid #d0d4d8">
+                                            <div class ="row">
+                    
+                                                <div class ="col-md-12">
+                                                    <span style ="font-family: calibri;font-weight: bold;font-size: 15pt;" id ="Module-Name">  </span>
+                                                </div>
+                                            </div>
+                                        </div>-->
+                    <div class ="div-form" style="padding:0 10px 10px 10px">
                         <br>
                         <input type="hidden" id ="module-trantype">
                         <div class ="row">
@@ -82,16 +91,16 @@ and open the template in the editor.
                                                         </div>-->
                         </div>
                         <div class ="row" style ="">
-                               <div class ="col-md-12">
-                                   <!--<button class="btn-material helix pull-right" type="button" style ="margin-right: 5px" onclick ="closeapprovalLookup();"><span class ="fa fa-refresh"></span><span>Close</span></button>-->
-                                   <button class ="btn-material helix helix-btn btn-sm" onclick="reloadRecords();"><span class ="fa fa-refresh"></span><span> Refresh </span>  </button>
-                                   <button class ="btn-material helix helix-btn btn-sm" id ="process-approve-btn" onclick ="approveTransaction();" ><span class ="fa fa-check"></span><span> Approve </span>  </button>
-                                   <button class ="btn-material helix helix-btn btn-sm" id ="process-reject-btn" onclick ="rejectTransaction();" ><span class ="fa fa-times"></span><span> Reject </span>  </button><!--
-                                    -->
-<!--                                      <button class ="btn btn-primary helix-btn btn-sm" onclick="reloadRecords();"><span class ="fa fa-refresh"></span> Refresh </button>
-                                    <button class ="btn btn-primary helix-btn btn-sm" id ="process-approve-btn" onclick ="approveTransaction();" ><span class ="fa fa-check"></span> Approve </button>
-                                    <button class ="btn btn-primary helix-btn btn-sm" id ="process-reject-btn" onclick ="rejectTransaction();" ><span class ="fa fa-times"></span> Reject </button>-->
-                                </div>
+                            <div class ="col-md-12">
+                                <!--<button class="btn-material helix pull-right" type="button" style ="margin-right: 5px" onclick ="closeapprovalLookup();"><span class ="fa fa-refresh"></span><span>Close</span></button>-->
+                                <button class ="btn-material helix btn-sm" id ="process-refresh-btn" onclick="reloadRecords();"><span class ="fa fa-refresh"></span><span> Refresh </span>  </button>
+                                <button class ="btn-material helix btn-sm" id ="process-approve-btn" onclick ="approveTransaction();" ><span class ="fa fa-check"></span><span> Approve </span>  </button>
+                                <button class ="btn-material helix btn-sm" id ="process-reject-btn" onclick ="rejectTransaction();" ><span class ="fa fa-times"></span><span> Reject </span>  </button><!--
+                                -->
+                                <!--                                      <button class ="btn btn-primary helix-btn btn-sm" onclick="reloadRecords();"><span class ="fa fa-refresh"></span> Refresh </button>
+                                                                    <button class ="btn btn-primary helix-btn btn-sm" id ="process-approve-btn" onclick ="approveTransaction();" ><span class ="fa fa-check"></span> Approve </button>
+                                                                    <button class ="btn btn-primary helix-btn btn-sm" id ="process-reject-btn" onclick ="rejectTransaction();" ><span class ="fa fa-times"></span> Reject </button>-->
+                            </div>
 
                         </div>
                         <br>
@@ -99,6 +108,12 @@ and open the template in the editor.
                         <div class ="row">
                             <div class ="col-md-12">
                                 <form action ="" id ="table-approval">
+                                    <div class ="row">
+                                        <div class ="col-md-2">
+                                            <label> <input type ="checkbox" name="select_all" class ="select_all" style ="width:15px;height: 15px"> Select All </label>
+
+                                        </div>
+                                    </div>
                                     <div class="table-responsive-vertical shadow-z-1">
                                         <table class ="table table-bordered table-condensed" id ="forapproval-records">
                                             <thead style ="font-size: 9pt">
@@ -124,13 +139,6 @@ and open the template in the editor.
                                     </div>
 
                                 </form>
-
-                                <div class ="row">
-                                    <div class ="col-md-2">
-                                        <label> <input type ="checkbox" name="select_all" class ="select_all" style ="width:15px;height: 15px"> Select All </label>
-
-                                    </div>
-                                </div>
                                 <!--<button class ="btn btn-primary btn-sm helix-btn pull-right" id ="process-btn" onclick ="processTransaction();" style ="display: none"> Reject </button>-->
                             </div>
                         </div>
@@ -165,7 +173,7 @@ and open the template in the editor.
                 <div class="modal-content" style ="border-radius: 0px;border-color:#204d74">
                     <!--<div class ="modal-header">Select Module</div>-->
                     <div class="modal-body" style ="height:60%;max-height: 510px;padding:15px;overflow-y: auto">
-                        
+
                         <span style ="font-size: 13pt;font-family: calibri" id ="lookup-header">Select Module</span><hr>
                         <span style ="font-size: 11pt;font-family: calibri" id ="lookup-message">Here are the modules that requires your approval. Please select a record to proceed.</span>
                         <input type ="hidden" id ="trantype">
@@ -180,11 +188,12 @@ and open the template in the editor.
                         <br>
                         <div class ="row">
                             <div class ="col-md-8 col-md-offset-4">
-                                
+
                                 <button class="btn-material inverse pull-right" type="button" style ="margin-right: 5px" id ="closeapprovalLookup" onclick ="closeapprovalLookup();"><span>Close</span></button>
                                 <button class="btn-material inverse pull-right" type="button" style ="margin-right: 5px" id ="SelectLookup" onclick ="SelectLookup();"><span>Select</span></button>
-<!--                                <button class ="btn-material helix pull-right " onclick ="closeapprovalLookup();" style ="margin-right: 5px">Close</button>
-                                <button class ="btn-material helix pull-right " onclick ="SelectLookup();" style ="margin-right: 5px">Select</button>-->
+                                <button class="btn-material inverse pull-right" type="button" style ="margin-right: 5px" id ="closeapprovalLookupEmpty" onclick ="closeapprovalLookup(true);"><span>Close</span></button>
+                                <!--                                <button class ="btn-material helix pull-right " onclick ="closeapprovalLookup();" style ="margin-right: 5px">Close</button>
+                                                                <button class ="btn-material helix pull-right " onclick ="SelectLookup();" style ="margin-right: 5px">Select</button>-->
                             </div>
                         </div>
 
@@ -207,7 +216,7 @@ and open the template in the editor.
 
                         <div class ="row" style ="">
                             <div class ="col-md-5" style ="">
-                                
+
                                 <button type ="text" class ="btn-material helix helix-btn btn-sm" id="approvePerTran" ><span class ="fa fa-check"></span> Approve</button>
                                 <button type ="text" class ="btn-material helix helix-btn btn-sm" id="rejectPerTran" ><span class ="fa fa-times"></span> Reject</button>
                             </div>
