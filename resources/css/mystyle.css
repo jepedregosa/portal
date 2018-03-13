@@ -399,7 +399,7 @@ body{
 }*/
 
 
-a[data-toggle="collapse"] {
+/*a[data-toggle="collapse"] {
     position: relative;
 }
 
@@ -413,7 +413,7 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
 }
 a[aria-expanded="true"]::before {
     content: '\e260';
-}
+}*/
 
 
 ul ul a {
@@ -492,7 +492,7 @@ a.article, a.article:hover {
         border-bottom: 1px solid #09365a;
     }
     .adjust-iframe-margin{
-        margin-top: -50px !important;
+        margin-top: -55px !important;
     }
     td{
         width: auto !important;
@@ -530,14 +530,18 @@ a.article, a.article:hover {
         display: -webkit-inline-box;
     }
     .myaccountbox{
-    width: 220px !important;border-top-style: solid;border-top-color: #09365a;border-width: thick;box-shadow: 1px 1px 1px 1px #000
+    width: 220px !important;border-top-style: solid;border-top-color: transparent;border-width: thick;box-shadow: 1px 1px 1px 1px #000
+}
+.header-mobile{
+    display: block !important;
+}
+.adjust-top{
+    margin-top: 5px !important;
 }
 /*    .chartjs-render-monitor{
         max-width: 700px !important;
         width: 700px !important;
     }   */
-	
-	#sidebar{ margin-top: 0px !important}
     
 }
 
@@ -566,7 +570,7 @@ a.article, a.article:hover {
         width: 700px !important;
     }*/
     .adjust-iframe-margin{
-        margin-top: -50px !important;
+        margin-top: -55px !important;
     }
 }
 
@@ -2393,7 +2397,7 @@ body::-webkit-scrollbar-thumb{
 
 
 .login-header{
-    background-color: #09365a !important;
+    background-color: #09365a;
     font-family: calibri;
     color:#fff !important;
     font-size: 2.5rem;
@@ -2484,6 +2488,404 @@ body::-webkit-scrollbar-thumb{
 }
 .myaccountbox{
     width: 335px;border-top-style: solid;border-top-color: #09365a;border-width: thick;box-shadow: 1px 1px 1px 1px #000
+}
+
+
+
+
+/*.nav-tabs { border-bottom: 2px solid #DDD; }
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; background: transparent;}
+    .nav-tabs > li > a { border: none; color: #09365a; }
+        .nav-tabs > li.active > a, .nav-tabs > li > a:hover { border: none; color: #4285F4 !important; background: transparent; }
+        .nav-tabs > li > a::after { content: ""; background: #09365a; height: 3px; position: absolute; width: 100%; left: 0px; bottom: -1px; transition: all 250ms ease 0s; transform: scale(0); }
+    .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform: scale(1); }
+.tab-nav > li > a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }
+.tab-pane {}
+.tab-content{}*/
+
+.card {background: #FFF none repeat scroll 0% 0%; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); margin-bottom: 0PX; }
+/*body{ background: #EDECEC; padding:50px}*/
+
+.noWrapText{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.scroll{
+    overflow: auto;
+}
+.scroll ul{
+    white-space: nowrap
+}
+.scroll li{
+    display: inline-block;
+}
+
+
+@media only screen and (max-width:640px) and (min-width: 320px){
+    #sidebar{
+        margin-top: 0px
+    }
+    .card{
+        display: block !important;
+    }
+    .nav-tabs{
+        overflow-x:visible !important;
+        overflow-y: hidden !important ;
+        width: 330px !important;
+        height: 43px !important;
+        display: inline-flex !important;
+    }
+    .modal-backdrop{
+        background : #000 !important;
+    }
+    .modal-semi-fullscreen{
+        top : 15% !important;
+    }
+    #sidebar{
+        margin-top: 0px !important;
+    }
+    
+}
+@media only screen and (max-width:568px) and (min-width: 320px){
+    #sidebar{
+        margin-top: 0px
+    }
+    .card{
+        display: block !important;
+    }
+    .nav-tabs{
+        overflow-x:visible !important;
+        overflow-y: hidden !important ;
+        width: 310px !important;
+        height: 43px !important;
+        display: inline-flex !important;
+    }
+    .modal-backdrop{
+        background : #000 !important;
+    }
+    .modal-semi-fullscreen{
+        top : 15% !important;
+    }
+    #sidebar{
+        margin-top: 0px !important;
+    }
+    
+}
+@media only screen and (max-width:667px) and (min-width: 375px){
+    #sidebar{
+        margin-top: 0px
+    }
+    .card{
+        display: block !important;
+    }
+    .nav-tabs{
+        overflow-x:visible !important;
+        overflow-y: hidden !important ;
+        width: 360px !important;
+        height: 43px !important;
+        display: inline-flex !important;
+    }
+    .modal-backdrop{
+        background : #000 !important;
+    }
+    .modal-semi-fullscreen{
+        top : 15% !important;
+    }
+    #sidebar{
+        margin-top: 0px !important;
+    }
+}
+@media only screen and (max-width:736px) and (min-width: 414px){
+    #sidebar{
+        margin-top: 0px
+    }
+    .card{
+        display: block !important;
+    }
+    .nav-tabs{
+        overflow-x:visible !important;
+        overflow-y: hidden !important ;
+        width: 405px !important;
+        height: 43px !important;
+        display: inline-flex !important;
+    }
+    .modal-backdrop{
+        background : #000 !important;
+    }
+    .modal-semi-fullscreen{
+        top : 15% !important;
+    }
+    #sidebar{
+        margin-top: 0px !important;
+    }
+}
+@media only screen and (max-width:812px) and (min-width: 375px){
+    #sidebar{
+        margin-top: 0px
+    }
+    .card{
+        display: block !important;
+    }
+    .nav-tabs{
+        overflow-x:visible !important;
+        overflow-y: hidden !important ;
+        width: 365px !important;
+        height: 43px !important;
+        display: inline-flex !important;
+    }
+    .modal-backdrop{
+        background : #000 !important;
+    }
+    .modal-semi-fullscreen{
+        top : 15% !important;
+    }
+    #sidebar{
+        margin-top: 0px !important;
+    }
+}
+
+@media only screen and (max-width:1024px) and (min-width: 768px){
+    #sidebar{
+        margin-top: 0px
+    }
+    .card{
+        display: block !important;
+    }
+    .nav-tabs{
+        overflow-x:visible !important;
+        overflow-y: hidden !important ;
+        width: 768px !important;
+        height: 43px !important;
+        display: inline-flex !important;
+    }
+    .modal-backdrop{
+        background : #000 !important;
+    }
+    .modal-semi-fullscreen{
+        top : 15% !important;
+    }
+    #sidebar{
+        margin-top: 0px !important;
+    }
+}
+
+@media only screen and (max-width:640px) and (min-width: 360px){
+    #sidebar{
+        margin-top: 0px
+    }
+    .card{
+        display: block !important;
+    }
+    .nav-tabs{
+        overflow-x:visible !important;
+        overflow-y: hidden !important ;
+        width: 360px !important;
+        height: 43px !important;
+        display: inline-flex !important;
+    }
+    .modal-backdrop{
+        background : #000 !important;
+    }
+    .modal-semi-fullscreen{
+        top : 15% !important;
+    }
+    #sidebar{
+        margin-top: 0px !important;
+    }
+}
+
+@media only screen and (max-width:736px) and (min-width: 414px){
+    #sidebar{
+        margin-top: 0px
+    }
+    .card{
+        display: block !important;
+    }
+    .nav-tabs{
+        overflow-x:visible !important;
+        overflow-y: hidden !important ;
+        width: 414px !important;
+        height: 43px !important;
+        display: inline-flex !important;
+    }
+    .modal-backdrop{
+        background : #000 !important;
+    }
+    .modal-semi-fullscreen{
+        top : 15% !important;
+    }
+    #sidebar{
+        margin-top: 0px !important;
+    }
+}
+
+@media only screen and (max-width:732px) and (min-width: 412px){
+    #sidebar{
+        margin-top: 0px
+    }
+    .card{
+        display: block !important;
+    }
+    .nav-tabs{
+        overflow-x:visible !important;
+        overflow-y: hidden !important ;
+        width: 412px !important;
+        height: 43px !important;
+        display: inline-flex !important;
+    }
+    .modal-backdrop{
+        background : #000 !important;
+    }
+    .modal-semi-fullscreen{
+        top : 15% !important;
+    }
+    #sidebar{
+        margin-top: 0px !important;
+    }
+}
+/*.ui-page{
+    min-height: auto;
+    max-height: auto;
+}*/
+.ui-loader-default{
+    display: none !important;
+}
+
+
+
+
+.btn-material {
+  position: relative;
+
+  /*display: block;*/
+  /*margin: 30px auto;*/
+  padding: 10px 10px;
+
+  overflow: hidden;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  
+  background-color: rgb(149,197,56);
+  color: #ecf0f1;
+  
+  transition: background-color .4s;
+}
+
+.btn-material:hover, .btn-material:focus {
+  background-color: rgb(149,197,56);
+}
+
+.btn-material > * {
+  position: relative;
+}
+
+.btn-material-sm{
+    padding: 5px 10px;
+}
+.btn-material span {
+  padding-right: 5px;
+}
+
+.btn-material-sm span {
+  /*display: block;*/
+  padding-right: 5px;
+}
+
+
+.btn-material:before {
+  content: "";
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  display: block;
+  width: 0;
+  padding-top: 0;
+    
+  border-radius: 100%;
+  
+  background-color: rgba(236, 240, 241, .3);
+  
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.btn-material:active:before {
+  width: 120%;
+  padding-top: 120%;
+  
+  transition: width .3s ease-out, padding-top .3s ease-out;
+}
+
+/* Styles, not important */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+h2 {
+  font-weight: normal;
+}
+
+.btn-material.orange {
+  background-color: #e67e22;
+}
+
+.btn-material.orange:hover, .btn.orange:focus {
+  background-color: #d35400;
+}
+
+.btn-material.red {
+  background-color: #e74c3c;
+}
+
+.btn-material.red:hover, .btn.red:focus {
+  background-color: #c0392b;
+}
+
+.btn-material.blue {
+  background-color: #337ab7;
+}
+
+.btn-material.blue:hover, .btn.blue:focus {
+  background-color: #337ab7;
+}
+
+.btn-material.blue {
+  background-color: #337ab7;
+}
+
+.btn-material.blue:hover, .btn.blue:focus {
+  background-color: #337ab7;
+}
+
+.btn-material.helix {
+  background-color: #09365a;
+}
+
+.btn-material.helix:hover, .btn.helix:focus {
+  background-color: #09365a;
+}
+
+
+
+.btn-material.inverse {
+  background-color: transparent;
+  box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+  color: #09365a;
+}
+
+.btn-material.inverse:hover, .btn.inverse:focus {
+  background-color: rgba(0,0,0,.12);
 }
 
 
