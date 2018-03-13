@@ -36,45 +36,54 @@ function forapprovalcallback(response) {
         console.log(arr);
 
 
+        if (arr == 0) {
+            $('#lookup-message').empty();
+            $('#lookup-message').html('No transaction to approve..');
+            $('#SelectLookup').css('display','none');
+        } else {
+            $('#SelectLookup').css('display','block');
+            $('#lookup-message').empty();
+            $('#lookup-message').html('Here are the modules that requires your approval. Please select a record to proceed.');
+            for (var i = 0; i < arr.length; i++) {
+                $('#approval-lookup-table').append('<tr id="rows' + (i) + '"><td>' + arr[i].TranDescription + '</td></tr>');
 
-        for (var i = 0; i < arr.length; i++) {
-            $('#approval-lookup-table').append('<tr id="rows' + (i) + '"><td>' + arr[i].TranDescription + '</td></tr>');
-
-            $('#rows' + i).attr('TranType', arr[i].TranType);
-            $('#rows' + i).attr('TranDescription', arr[i].TranDescription);
-            $('#rows' + i).dblclick(function(a) {
-                var TranType = $(this).attr('TranType');
-                var TranDescription = $(this).attr('TranDescription');
-                if (TranType && TranDescription) {
-                    console.log(TranType);
-                    console.log(TranDescription);
-                    loadForApproval(TranType);
-                    $('#Module-Name').empty();
-                    $('#Module-Name').html(TranDescription);
-                    $('#module-trantype').val(TranType);
-                    $('#approvalLookup').modal('hide');
+                $('#rows' + i).attr('TranType', arr[i].TranType);
+                $('#rows' + i).attr('TranDescription', arr[i].TranDescription);
+                $('#rows' + i).dblclick(function(a) {
+                    var TranType = $(this).attr('TranType');
+                    var TranDescription = $(this).attr('TranDescription');
+                    if (TranType && TranDescription) {
+                        console.log(TranType);
+                        console.log(TranDescription);
+                        loadForApproval(TranType);
+                        $('#Module-Name').empty();
+                        $('#Module-Name').html(TranDescription);
+                        $('#module-trantype').val(TranType);
+                        $('#approvalLookup').modal('hide');
 //                    $('#process-approve-btn').css('display', 'block');
 //                    $('#process-reject-btn').css('display', 'block');
 
-                }
-            });
+                    }
+                });
 
-            $('#rows' + i).click(function(a) {
-                var TranType = $(this).attr('TranType');
-                var TranDescription = $(this).attr('TranDescription');
-                if (TranType && TranDescription) {
-                    $('#trantype').val(TranType);
-                    $('#trandescription').val(TranDescription);
-                }
+                $('#rows' + i).click(function(a) {
+                    var TranType = $(this).attr('TranType');
+                    var TranDescription = $(this).attr('TranDescription');
+                    if (TranType && TranDescription) {
+                        $('#trantype').val(TranType);
+                        $('#trandescription').val(TranDescription);
+                    }
+                });
+            }
+
+            $('#approval-lookup-table tr').click(function() {
+                var selected = $(this).hasClass('highlight');
+                $('#approval-lookup-table tr').removeClass('highlight');
+                if (!selected)
+                    $(this).addClass('highlight');
             });
         }
 
-        $('#approval-lookup-table tr').click(function() {
-            var selected = $(this).hasClass('highlight');
-            $('#approval-lookup-table tr').removeClass('highlight');
-            if (!selected)
-                $(this).addClass('highlight');
-        });
 
 
     }
@@ -85,7 +94,7 @@ function forapprovalcallback(response) {
 
 
         for (var i = 0; i < arr.length; i++) {
-            $('#forapproval-records').append('<tr class = "responsive-tr" id="rows1' + (i) + '" rownum = ' + (i) + ' style = "cursor:pointer">'
+            $('#forapproval-records').append('<tr class = "responsive-tr" id="rows1' + (i) + '" rownum = ' + (i) + ' style = "color:#000;cursor:pointer;">'
 //                    +'<td style = "display:none">' + formatValue(arr[i].ApprovalType, true) + '</td>'+
                     + '<td style = "display:none">' + formatValue(arr[i].BatNbr, true) + '</td>'
                     + '<td style = "display:none">' + formatValue(arr[i].TranType, true) + '</td>'
