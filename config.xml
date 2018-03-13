@@ -42,7 +42,7 @@
   <allow-intent href="sms:*"/>
   <allow-intent href="mailto:*"/>
   <allow-intent href="geo:*"/>
-  <allow-navigation href="https://116.93.120.29:8080/portal/*" />
+  <allow-navigation href="http://116.93.120.29:8080/portal/*" />
   <platform name="android">
     <allow-intent href="market:*"/>
   </platform>
