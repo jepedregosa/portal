@@ -502,11 +502,11 @@ and open the template in the editor.
                     <div class="modal-body" style ="height:60%;max-height: 510px;padding:15px;overflow-y: auto">
                         <div class = "row" style ="padding-bottom: 20px">
                             <div class ="col-md-12">
-                                <center><p>Delete Item?</p></center>
+                                <center><p id ="msg">Delete Item?</p></center>
                             </div>
                         </div>
                         <div class="modal-footer" style ="text-align: center">
-                            <div class ="row">
+                            <div class ="row" style ="display: -webkit-inline-box">
                                 <div class ="col-md-6">
                                     <button class ="btn btn-primary helix-btn" id ="Yes" onclick="">Yes</button>
                                 </div>
@@ -558,6 +558,32 @@ and open the template in the editor.
                                 <center><p>No Records found..</p></center>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal modal-semi-fullscreen fade scrollbar-path-vertical" id="MsgAlertCloseForm" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false" style ="position:fixed;top:0;right:3%;left:3%;width:auto;margin:0">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content" style ="border-radius: 0px;border-color:#204d74">
+                    <div class ="modal-header"><span class ="fa fa-warning fa-2x" style ="color: red"></span></div>
+                    <div class="modal-body" style ="height:60%;max-height: 510px;padding:15px;overflow-y: auto">
+                        <div class = "row" style ="padding-bottom: 20px">
+                            <div class ="col-md-12">
+                                <center><p>Are you sure you want to close without saving?</p></center>
+                            </div>
+                        </div>
+                        <div class="modal-footer" style ="text-align: center">
+                            <div class ="row" style ="display: -webkit-inline-box">
+                                <div class ="col-md-6">
+                                    <button class ="btn btn-primary helix-btn" id ="Close-Yes" onclick="">Yes</button>
+                                </div>
+                                <div class ="col-md-6">
+                                    <button class ="btn btn-primary helix-btn" id ="Close-No" onclick ="">No</button>
+                                </div>
+                            </div>
+
+                        </div> 
                     </div>
                 </div>
             </div>

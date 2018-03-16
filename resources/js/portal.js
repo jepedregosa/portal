@@ -1,4 +1,4 @@
-var baseUrl = "http://116.93.120.29:8080/portal/";
+var baseUrl = "http://localhost:8080/portal/";
 var email;
 var firstname;
 var userID;
@@ -180,8 +180,16 @@ function logincallback(response) {
     if (email == null && curPage != 'login.html') {
         window.location.href = baseUrl + "login.html"; 
     }else if(email){
-        window.location.href = baseUrl + "main.html";
-        //cordova.InAppBrowser.open(baseUrl + "main.html", "_blank", "location=yes");
+//        window.location.href = baseUrl + "main.html";
+        onDeviceReady();
+//       document.addEventListener('deviceready', this.onDeviceReady, false);
+//        console.log(cordova.InAppBrowser);
+        
+//        window.open(baseUrl + "main.html", '_blank','location=yes');
+//        cordova.InAppBrowser.open(baseUrl + 'main.html', '_blank', 'location=yes');
+        
+//        var ref = cordova.InAppBrowser.open(baseUrl + 'main.html', '_blank', 'location=yes'); 
+//        ref.addEventListener('loadstart', function (event) { alert (event.url); });
     }else{
         
     }
@@ -192,6 +200,9 @@ function logincallback(response) {
         $('#error-message').html(response.message);
     }
     
+}
+function onDeviceReady(){
+    window.location.href = baseUrl + "main.html"; 
 }
 
 
@@ -225,6 +236,8 @@ function callback(response) {
     
 //    document.cookie=userID;
 
+    
+//    $('.select2-search').select2({});
     $('input.number').keyup(function(event) {
 
     // skip for arrow keys
@@ -350,11 +363,26 @@ function callback(response) {
 
 function hideshowMenu() {
 
-//    alert('test');
     $('#sidebarCollapse').css('margin-left', '0px');
     $('#sidebar').toggleClass('active');
     if ($('#sidebar').hasClass('active')) {
     } else {
+        $('#sidebarCollapse').css('margin-left', '0px');
+        $('#sidebarCollapse').css('margin-top', '-1px');
+    }
+}
+
+
+function hideshowMenuOnMobile() {
+
+    $('#sidebarCollapse').css('margin-left', '0px');
+    $('#sidebar').toggleClass('active');
+    if ($('#sidebar').hasClass('active')) {
+        $('.adjust-margin-top').css('display','none');
+        $('.adjust-iframe-margin').css('display','none');
+    } else {
+        $('.adjust-margin-top').css('display','block');
+        $('.adjust-iframe-margin').css('display','block');
         $('#sidebarCollapse').css('margin-left', '0px');
         $('#sidebarCollapse').css('margin-top', '-1px');
     }
@@ -413,7 +441,6 @@ function changeLoginDisplay(test){
     $('#LoginType').empty();
     $('#LoginType').html(loginType);
 }
-
 function showMoreOptions(){
     $('#other-options').css('display','block');
     $('#showMoreOptions').css('display','none');
@@ -424,5 +451,4 @@ function hideMoreOptions(){
     $('#hideMoreOptions').css('display','none');
     $('#showMoreOptions').css('display','block');
 }
-
 

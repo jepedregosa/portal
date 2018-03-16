@@ -46,7 +46,7 @@ and open the template in the editor.
             <input type="hidden" id ="global-reportid">
             <input type="hidden" id ="global-moduleid">
             <!--            
-                        <button class="btn-material" type="button"><span>Button</span></button>
+                    <button class="btn-material" type="button"><span>Button</span></button>
             
             <button class="btn-material orange" type="button"><span>Medium-length button</span></button>
             
@@ -55,96 +55,113 @@ and open the template in the editor.
             <button class="btn-material inverse" type="button"><span>Medium-length button</span></button>
             
             <button class="btn-material red" type="button"><span>Extra-long button to let you appreciate the effect.</span></button>
-            -->
+            --
 
             <div class ="tab-content">
                 <div class ="tab-pane active" id ="approval">
-                    <div class ="row tab_approvetran_module-mobile" style ="display: none">
-                        <div class ="col-md-12">
-                            <div class ="card" style ="">
-                                <ul class ="nav nav-tabs approvetran_module" role="tablist">
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!--                    <div class ="container-fluid" style ="background : #fff;padding-left: 5px;padding-top:5px;padding-bottom: 5px;border-bottom: 1px solid #d0d4d8">
-                                            <div class ="row">
-                    
+            -->                                
+            <!--                            <div class ="row tab_approvetran_module-mobile" style ="display: none">
                                                 <div class ="col-md-12">
-                                                    <span style ="font-family: calibri;font-weight: bold;font-size: 15pt;" id ="Module-Name">  </span>
+                                                    <div class ="card" style ="">
+                                                        <ul class ="nav nav-tabs approvetran_module" role="tablist">
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>-->
-                    <div class ="div-form" style="padding:0 10px 10px 10px">
-                        <br>
-                        <input type="hidden" id ="module-trantype">
-                        <div class ="row">
-                            <div class ="col-md-5" style ="">
-                                <div class ="form-group" style ="display:-webkit-inline-box">
-                                    <label>Filter record: &nbsp;&nbsp;</label>
-                                    <input type ="text" id ="Search" class ="form-control input-sm" placeholder="Search Name, Details, Amount..">
-                                </div>
-                            </div>
-                            <!--                            <div class = "col-md-1">
-                                                            
-                                                        </div>-->
-                        </div>
-                        <div class ="row" style ="">
-                            <div class ="col-md-12">
-                                <!--<button class="btn-material helix pull-right" type="button" style ="margin-right: 5px" onclick ="closeapprovalLookup();"><span class ="fa fa-refresh"></span><span>Close</span></button>-->
-                                <button class ="btn-material helix btn-sm" id ="process-refresh-btn" onclick="reloadRecords();"><span class ="fa fa-refresh"></span><span> Refresh </span>  </button>
-                                <button class ="btn-material helix btn-sm" id ="process-approve-btn" onclick ="approveTransaction();" ><span class ="fa fa-check"></span><span> Approve </span>  </button>
-                                <button class ="btn-material helix btn-sm" id ="process-reject-btn" onclick ="rejectTransaction();" ><span class ="fa fa-times"></span><span> Reject </span>  </button><!--
-                                -->
-                                <!--                                      <button class ="btn btn-primary helix-btn btn-sm" onclick="reloadRecords();"><span class ="fa fa-refresh"></span> Refresh </button>
-                                                                    <button class ="btn btn-primary helix-btn btn-sm" id ="process-approve-btn" onclick ="approveTransaction();" ><span class ="fa fa-check"></span> Approve </button>
-                                                                    <button class ="btn btn-primary helix-btn btn-sm" id ="process-reject-btn" onclick ="rejectTransaction();" ><span class ="fa fa-times"></span> Reject </button>-->
-                            </div>
+                                            </div>-->
 
-                        </div>
-                        <br>
 
-                        <div class ="row">
-                            <div class ="col-md-12">
-                                <form action ="" id ="table-approval">
-                                    <div class ="row">
-                                        <div class ="col-md-2">
-                                            <label> <input type ="checkbox" name="select_all" class ="select_all" style ="width:15px;height: 15px"> Select All </label>
 
-                                        </div>
-                                    </div>
-                                    <div class="table-responsive-vertical shadow-z-1">
-                                        <table class ="table table-bordered table-condensed" id ="forapproval-records">
-                                            <thead style ="font-size: 9pt">
-                                                <!--<th>Approval Type</th>-->
-                                                <tr>
-                                                    <th style = "display:none">Ref No</th>
-                                                    <th style = "display:none">Ref Date</th>
-                                                    <th></th>
-                                                    <th>Name</th>
 
-                                                    <th>Transaction Details / Memo</th>
-                                                    <th>DocTotal</th>
-                                                    <th style = "display:none">Processed By</th>
-                                                    <th style = "display:none">Approve</th>
-                                                    <th style = "display:none">Reject</th>
-                                                    <th style = "display:none">Details</th>
-                                                    <th>Comments</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody style ="font-size: 9pt">
-                                            </tbody>
-                                        </table>
-                                    </div>
 
-                                </form>
-                                <!--<button class ="btn btn-primary btn-sm helix-btn pull-right" id ="process-btn" onclick ="processTransaction();" style ="display: none"> Reject </button>-->
-                            </div>
-                        </div>
+            <div class ="container-fluid" style ="background : #fff;padding-left: 5px;padding-top:5px;padding-bottom: 5px;border-bottom: 1px solid #d0d4d8">
+                <div class ="row">
+
+                    <div class ="col-md-12">
+                        <span style ="font-family: calibri;font-weight: bold;font-size: 15pt;" id ="Module-Name">  </span>
                     </div>
                 </div>
             </div>
+            <div class ="div-form" style="padding:0 10px 10px 10px">
+                <br>
+                <input type="hidden" id ="module-trantype">
+                <div class ="row">
+                    <div class ="col-md-4" style ="">
+                        <div class ="form-group">
+                            <input type ="text" id ="Search" class ="form-control custom-input input-sm" style ="border:transparent;border-radius: 0px;border-bottom: 1px solid #7e9399"placeholder="Search Name, Details, Amount..">
+                        </div>
+                    </div>
+                </div>
+                <div class ="row">
+                    <div class ="col-md-12">
+                        <button class ="btn-material inverse btn-sm" id ="process-refresh-btn" onclick="reloadRecords();"  style ="width: 85px"><span class ="fa fa-refresh"></span><span> Refresh </span></button>
+                    </div>
+
+                </div>
+                <br>
+
+                <div class ="row">
+                    <div class ="col-md-12">
+
+                        <form action ="" id ="table-approval">
+
+                            <div class ="row">
+                                <div class ="col-md-2">
+                                    <label> <input type ="checkbox" name="select_all" class ="select_all" style ="width:15px;height: 15px"> Select All </label>
+
+                                </div>
+                            </div>
+                            <div class ="Header-Text" style ="display: none">
+                                <span style ="font-size: 13pt;font-family: calibri" class ="" >Transaction</span>    
+                            </div>
+
+                            <div class="table-responsive-vertical shadow-z-1">
+                                <table class ="table table-bordered table-condensed" id ="forapproval-records">
+                                    <thead style ="font-size: 9pt">
+                                        <!--<th>Approval Type</th>-->
+                                        <tr>
+                                            <th style = "display:none">Ref No</th>
+                                            <th style = "display:none">Ref Date</th>
+                                            <th></th>
+                                            <th>Name</th>
+                                            <th>Transaction Details / Memo</th>
+                                            <th>DocTotal</th>
+                                            <th style = "display:none">Processed By</th>
+                                            <th style = "display:none">Approve</th>
+                                            <th style = "display:none">Reject</th>
+                                            <th style = "display:none">Details</th>
+                                            <th>Comments</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style ="font-size: 9pt">
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </form>
+                        <!--<button class ="btn btn-primary btn-sm helix-btn pull-right" id ="process-btn" onclick ="processTransaction();" style ="display: none"> Reject </button>-->
+                        <center>
+                            <button class =" btn-material btn-sm" id ="process-approve-btn" onclick ="approveRecordConfirm()();" style ="width: 85px" disabled><span class ="fa fa-check"></span><span> Approve </span>  </button>
+                            <button class =" btn-material red btn-sm" id ="process-reject-btn" onclick ="cancelRecordConfirm();"  style ="width: 85px" disabled><span class ="fa fa-times"></span><span> Reject </span>  </button>
+                        </center>
+                    </div>
+                    
+                </div>
+
+                <!--                
+                                <div class ="row" style ="bottom: 0;position: fixed;left: 10%">
+                                    <button class ="btn-material red btn-sm" style ="border-radius: 30px" ><span class ="fa fa-times fa-2x"></span></button>
+                                </div>-->
+
+
+                <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create" onclick ="reloadPage();" style ="display: none">
+                    <p class="plus"><span class ="fa fa-arrow-left"></span></p>
+                    
+                </div>
+
+
+            </div>
+
+
         </div>
 
         <!--        <footer>
@@ -174,17 +191,20 @@ and open the template in the editor.
                     <!--<div class ="modal-header">Select Module</div>-->
                     <div class="modal-body" style ="height:60%;max-height: 510px;padding:15px;overflow-y: auto">
 
-                        <span style ="font-size: 13pt;font-family: calibri" id ="lookup-header">Select Module</span><hr>
+                        <span style ="font-size: 13pt;font-family: calibri" id ="lookup-header">Select Module</span><br><br>
                         <span style ="font-size: 11pt;font-family: calibri" id ="lookup-message">Here are the modules that requires your approval. Please select a record to proceed.</span>
                         <input type ="hidden" id ="trantype">
                         <input type ="hidden" id ="trandescription">
-                        <table class ="table table-bordered table-condensed" id ="approval-lookup-table" style ="margin-top: 10px">
-                            <!--                            <thead>
-                                                        <th>Module</th>
-                                                        </thead>-->
-                            <tbody>
-                            </tbody>
-                        </table>
+                        <div class ="" style ="height: 160px;overflow-y: auto">
+                            <table class ="table table-bordered table-condensed" id ="approval-lookup-table" style ="margin-top: 10px">
+                                <!--                            <thead>
+                                                            <th>Module</th>
+                                                            </thead>-->
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+
                         <br>
                         <div class ="row">
                             <div class ="col-md-8 col-md-offset-4">
@@ -215,16 +235,34 @@ and open the template in the editor.
                         <br>
 
                         <div class ="row" style ="">
-                            <div class ="col-md-5" style ="">
+                            <div class ="col-md-7" style ="">
 
                                 <button type ="text" class ="btn-material helix helix-btn btn-sm" id="approvePerTran" ><span class ="fa fa-check"></span> Approve</button>
                                 <button type ="text" class ="btn-material helix helix-btn btn-sm" id="rejectPerTran" ><span class ="fa fa-times"></span> Reject</button>
                             </div>
-                            <div class ="col-md-4 col-md-offset-3" style ="-webkit-inline-box">
+                            <div class ="col-md-4 col-md-offset-1" style ="-webkit-inline-box">
                                 <button class ="btn-material helix helix-btn btn-sm pull-right" onclick ="closemessageLookup();"><span class ="fa fa-ban"></span> Close</button>
                             </div>
                         </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal modal-semi-fullscreen fade scrollbar-path-vertical" id="MsgAlertApproval" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false" style ="position:fixed;top:0;right:3%;left:3%;width:auto;margin:0">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content" style ="border-radius: 0px;border-color:#204d74">
+                    <div class ="modal-header"><span class ="fa fa-info-circle fa-2x"></span> Alert! <a href="#" class ="fa fa-times pull-right" style ="color:#000"></a></div>
+                    <div class="modal-body" style ="height:60%;max-height: 510px;padding:15px;overflow-y: auto">
+                        <div class = "row" style ="padding-bottom: 20px">
+                            <div class ="col-md-12">
+                                <center><p id ="MessageAlert">Record Successfully Updated! </p></center>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class ="btn btn-primary helix-btn" onclick="closeMsgboxApproval(true);">OK</button>
+                        </div> 
                     </div>
                 </div>
             </div>
