@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-var baseUrl = "http://localhost:8080/portal/";
+var baseUrl = "http://116.93.120.29:8080/portal/";
 
 function approvalOnload() {
 
