@@ -1,4 +1,4 @@
-var baseUrl = "http://116.93.120.29:8080/portal/";
+var baseUrl = "http://localhost:8080/portal/";
 var email;
 var firstname;
 var userID;
@@ -8,6 +8,8 @@ var dbname;
 var type;
 var branch;
 
+
+var clientid;
 function loginOnload(){
     $('.login-btn').keyup(function(event) {
         if (event.keyCode === 13) {
@@ -15,12 +17,29 @@ function loginOnload(){
         }
     });
     
+    var cookies = document.cookie;
+    cookies = cookies.split("; ");
+    var obj1 = new Object();
+    for (var i = 0; i < cookies.length; i++){
+        var cookies_tmp = cookies[i].split("=");
+        eval('obj1.' + cookies_tmp[0] + ' = "'+cookies_tmp[1]+'"');
+        
+    }
+    console.log(obj1);
+    //set Values from cookies
+    if(obj1.Email != null){
+        $('#email').val(formatValue(obj1.Email.replace('%40', '@'),true));
+    }
+    $('#companyid').val(formatValue(obj1.CompanyID,true));
+    $('#clientid').val(formatValue(obj1.DbName,true));
+    
+    
 }
 
 function login() {
     
     var datas = $('#loginForm').serialize();
-    var clientid = $('#clientid').val();
+    clientid = $('#clientid').val();
     console.log(datas);
     jQuery.ajax({
         type: 'POST',
@@ -28,37 +47,13 @@ function login() {
         dataType: 'jsonp',
         url: baseUrl + "loginservlet?jsonformat=jsonp&action=auth&clientid=" + clientid,
         data: datas,
-        success: function(response) {
-            
-            console.log(response);
-            
-//            if(response.success){
-//                alert('test');
-//                window.location.href = './main.html';
-//            }
-            
-//            if (response.success) {
-//                var dataList = $('#loginForm').serializeArray().reduce(function(obj, item) {
-//                    obj[item.name] = item.value;
-//                    return obj;
-//                }, {});
-//                window.location.href = 'main.html';
-//            } else {
-//                alert(response.message);
-//                alert(response.error);
-//                
-//                window.reload();
-//            }
-
-        }
+        success: function(response) {}
     });
 }
 function confirmLogout(){
     try {
         var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function() {
-            console.log('User signed out.');
-        });
+        auth2.signOut().then(function() {});
 
     } catch (e) {
         console.log(e);
@@ -86,9 +81,11 @@ function chksessionOnIndex() {
         xhrFields: { withCredentials: true },
         success: function(response) {
             if (response.success) {
+                
                 window.location = "./main.html";
             } else
             {
+//                checkInternetConnection();
                 window.location = "./login.html";
             }
         }});
@@ -135,10 +132,12 @@ function userscallback(response) {
     if (response.success) {
         if(response.usage == 'getExactUsers'){
            var arr = response.data[0];
-           console.log(arr);
+//           console.log(arr);
            $('#user').replaceWith('<span style ="font-size: 12pt;font-family: calibri;color:#000" id ="user">' + arr.FullName + " <br> " + arr.Branch +" - " +arr.BranchDesc+ ' </span>');
            $('#user-mobile').replaceWith('<span style ="font-size: 10pt;font-family: calibri;color:#000" id ="user">' + arr.FullName + " <br> " + arr.Branch +" - " +arr.BranchDesc+ ' </span>');
            //$('#Email').replaceWith('<label style = "font-size:11pt;font-family:Calibri;font-weight:100">E-mail : ' + arr.EmailAddress + '</label>'); 
+           
+//           setCookie('CompanyID', arr.G01);
            
         }
     } else {
@@ -157,52 +156,47 @@ function companycallback(response){
 
 function logincallback(response) {
     if(response.success){
-        console.log(response);
-//    alert('dito');
-//    var pageLoc = getURL();// window.location.href;
-//
-//    var indx = pageLoc.lastIndexOf('/') + 1;
-//    var curPage = pageLoc.substring(indx, pageLoc.length);
-
-    email = response.email;
-    firstname = response.FirstName;
-    userID = response.UserID;
-    userType = response.Usertype;
-    dbname = response.dbname;
-    type = response.Type;
+        
+        email = response.email;
+        companyid = response.companyid;
+        firstname = response.FirstName;
+        userID = response.UserID;
+        userType = response.Usertype;
+        dbname = response.dbname;
+        type = response.Type;
+        clientdbname = response.clientdbname;
     
-    //document.cookie = "JSESSIONID="+response.sessionid+"";
     setCookie('JSESSIONID', response.sessionid);
     setCookie('Branch', response.Branch);
     setCookie('UserID', response.UserID);
     
     
+    
+    
+    
+    
+    
+    
     if (email == null && curPage != 'login.html') {
         window.location.href = baseUrl + "login.html"; 
     }else if(email){
-//        window.location.href = baseUrl + "main.html";
-        onDeviceReady();
-//       document.addEventListener('deviceready', this.onDeviceReady, false);
-//        console.log(cordova.InAppBrowser);
-        
-//        window.open(baseUrl + "main.html", '_blank','location=yes');
-//        cordova.InAppBrowser.open(baseUrl + 'main.html', '_blank', 'location=yes');
-        
-//        var ref = cordova.InAppBrowser.open(baseUrl + 'main.html', '_blank', 'location=yes'); 
-//        ref.addEventListener('loadstart', function (event) { alert (event.url); });
-    }else{
-        
+        if($('.checkbox-remember').prop('checked')==true){
+            setCookie('Email', response.email);
+            setCookie('DbName', response.clientdbname);
+            setCookie('CompanyID', response.CompanyID);
+        }
+        window.location.href = baseUrl + "main.html"; 
     }
     
     }else{
-//        console.log(response.message);
         $('#error-block').css('display','block');
         $('#error-message').html(response.message);
     }
     
-}
-function onDeviceReady(){
-    window.location.href = baseUrl + "main.html"; 
+    
+    
+    
+    
 }
 
 
@@ -216,7 +210,8 @@ function numberWithCommas(x) {
 function callback(response) {
     
     
-
+    
+    
     var pageLoc = window.location.href;
 
     var indx = pageLoc.lastIndexOf('/') + 1;
@@ -232,12 +227,11 @@ function callback(response) {
     type = response.Type;
     branch = response.Branch;
     companyid = response.CompanyID;
-//    console.log(companyid);
     
-//    document.cookie=userID;
-
     
-//    $('.select2-search').select2({});
+//    setCookie('dbname', response.dbname);
+    
+    
     $('input.number').keyup(function(event) {
 
     // skip for arrow keys
@@ -420,8 +414,10 @@ function closePromptRecorsFound(){
 }
 
 function setCookie(name, value){
+    
     var data = [encodeURIComponent(name) + '=' + encodeURIComponent(value)];
     document.cookie = data.join('; ');
+    
 }
 
 function getCookie(name, keepDuplicates){
@@ -432,7 +428,9 @@ function getCookie(name, keepDuplicates){
       if (details[0] == encodeURIComponent(name)){
         values.push(decodeURIComponent(details[1].replace(/\+/g, '%20')));
       }
+      
     }
+    
     return (keepDuplicates ? values : values[0]);
  }
 
@@ -452,3 +450,15 @@ function hideMoreOptions(){
     $('#showMoreOptions').css('display','block');
 }
 
+
+function checkInternetConnection(){
+    jQuery.ajaxSetup({async : false});
+    re = "";
+    r = Math.round(Math.random() * 10000);
+    $.get("http://116.93.120.29:8080/portal/login.html", {subins : r},function(d){
+        re = true;
+    }).error(function(){
+        re = false;
+    });
+    return re;
+}
