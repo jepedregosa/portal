@@ -462,3 +462,17 @@ function checkInternetConnection(){
     });
     return re;
 }
+
+function showPassword(){
+    $('#Password').removeAttr('type','password');
+    $('#Password').attr('type','text');
+    $('#showPassword').hide();
+    $('#hidePassword').show();
+}
+
+function hidePassword(){
+    $('#Password').attr('type','password');
+    $('#Password').removeAttr('type','text');
+    $('#showPassword').show();
+    $('#hidePassword').hide();
+}
