@@ -29,7 +29,6 @@ function loginOnload(){
     //set Values from cookies
     if(obj1.Email != null){
         $('#email').val(formatValue(obj1.Email.replace('%40', '@'),true));
-        $('.checkbox-remember').prop('checked','checked');
     }
     $('#companyid').val(formatValue(obj1.CompanyID,true));
     $('#clientid').val(formatValue(obj1.DbName,true));
@@ -465,15 +464,16 @@ function checkInternetConnection(){
 }
 
 function showPassword(){
-    $('#Password').removeAttr('type','password');
-    $('#Password').attr('type','text');
+    $('#Password').removeAttr('type', 'password');
+    $('#Password').attr('type', 'text');
     $('#showPassword').hide();
     $('#hidePassword').show();
 }
 
 function hidePassword(){
-    $('#Password').attr('type','password');
-    $('#Password').removeAttr('type','text');
     $('#showPassword').show();
     $('#hidePassword').hide();
+    $('#Password').removeAttr('type', 'text');
+    $('#Password').attr('type', 'password');
+    
 }
