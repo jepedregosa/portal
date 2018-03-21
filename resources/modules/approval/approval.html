@@ -207,7 +207,7 @@ and open the template in the editor.
                 <br>
 
                 <div class ="row" style ="">
-                    <div class ="col-md-7" style ="">
+                    <div class ="col-md-12" style ="">
                         <button type ="text" class ="btn-material btn-sm" id="approvePerTranRec" ><span class ="fa fa-check"></span> Approve</button>
                         <button type ="text" class ="btn-material red  btn-sm" id="rejectPerTranRec" ><span class ="fa fa-times"></span> Reject</button>
                     </div>
@@ -261,11 +261,16 @@ and open the template in the editor.
                         <br>
 
                         <div class ="row" style ="">
-                            <div class ="col-md-7" style ="">
+                            <div class ="col-md-12" style ="">
 
-                                <button type ="text" class ="btn-material helix helix-btn btn-sm" id="approvePerTran" ><span class ="fa fa-check"></span> Approve</button>
-                                <button type ="text" class ="btn-material helix helix-btn btn-sm" id="rejectPerTran" ><span class ="fa fa-times"></span> Reject</button>
-                            </div>
+							
+							<center>
+								<button class =" btn-material inverse " id ="reload-Page-btn"  onclick ="closeRec();" style ="width: 90px"><span class ="fa fa-angle-left"></span><span> Back </span>  </button>
+                                <button type ="text" class ="btn-material inverse" id="approvePerTran" ><span class ="fa fa-check"></span><span class ="fa fa-check" style ="color:green"></span><span> Approve </span>  </button>
+                                <button type ="text" class ="btn-material inverse" id="rejectPerTran" ><span class ="fa fa-times" style ="color:red"></span><span> Reject </span>  </button>
+                            
+							</center>
+							</div>
                             <div class ="col-md-4 col-md-offset-1" style ="-webkit-inline-box">
                                 <button class ="btn-material helix helix-btn btn-sm pull-right" onclick ="closemessageLookup();"><span class ="fa fa-ban"></span> Close</button>
                             </div>
@@ -296,8 +301,8 @@ and open the template in the editor.
         <footer>
             <div id ="toolbar-module" style ="bottom: 0;position: fixed;width: 100%;margin-bottom: 0;background: #fff;padding: 10px 0 10px 0">
                 <center>
-                    <button class =" btn-material inverse " id ="reload-Page-btn" onclick ="reloadPage()();" style ="width: 90px"><span class ="fa fa-angle-left"></span><span> Back </span>  </button>
-                    <button class =" btn-material inverse " id ="process-approve-btn" onclick ="approveRecordConfirm()();" style ="width: 100px" disabled><span class ="fa fa-check" style ="color:green"></span><span> Approve </span>  </button>
+                    <button class =" btn-material inverse " id ="reload-Page-btn" onclick ="reloadPage()" style ="width: 90px"><span class ="fa fa-angle-left"></span><span> Back </span>  </button>
+                    <button class =" btn-material inverse " id ="process-approve-btn" onclick ="approveRecordConfirm()" style ="width: 100px" disabled><span class ="fa fa-check" style ="color:green"></span><span> Approve </span>  </button>
                     <button class =" btn-material inverse " id ="process-reject-btn" onclick ="cancelRecordConfirm();"  style ="width: 90px" disabled><span class ="fa fa-times" style ="color:red"></span><span> Reject </span>  </button>
                 </center>
             </div>
