@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-var baseUrl = "http://116.93.120.29:8080/portal/";
+var baseUrl = "http://localhost:8080/portal/";
 var curModule;
 
 function approvalOnload() {
@@ -21,6 +21,20 @@ function approvalOnload() {
     $('#Search').keyup(function(event) {
         if (event.keyCode === 13) {
             searchRec();
+        }
+    });
+    
+    $('#approval-records').xpull({
+         spinnerTimeout: '1000',
+        'callback': function () {
+            var trantype = $('#module-trantype').val();
+            jQuery.ajax({
+                type: 'POST',
+                jsonpCallback: "callback",
+                crossDomain: true,
+                dataType: 'jsonp',
+                url: baseUrl + 'forapprovallist?jsonformat=jsonp&trantype=' + trantype
+            });
         }
     });
     
@@ -140,7 +154,6 @@ function rejectTransaction() {
     );
 
     var data = objectifyForm($('#table-approval').serializeArray());
-    //empty first arr
     data.details = arr;
 
     $.ajax({
@@ -532,7 +545,6 @@ function forapprovalcallback(response) {
     }
     else if (response.usage == 'getRecordPerModule'){
         var arr = response.data;
-        
         $('#Project').html(formatValue(arr[0].Project,true));
         var trantype = response.module;
         

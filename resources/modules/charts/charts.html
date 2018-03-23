@@ -111,11 +111,18 @@ and open the template in the editor.
 
     </head>
     <body onload="chartsOnload();">
+        <div class="showbox">
+            <div class="loader">
+              <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+              </svg>
+            </div>
+          </div>
+
         <div class ="container-fluid">
             <input type="hidden" id ="global-batnbr">
             <input type="hidden" id ="global-reportid">
             <input type="hidden" id ="global-moduleid">
-
             <div class ="tab-content">
                 <div class ="tab-pane active" id ="">
 

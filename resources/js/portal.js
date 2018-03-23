@@ -1,4 +1,4 @@
-var baseUrl = "http://116.93.120.29:8080/portal/";
+var baseUrl = "http://localhost:8080/portal/";
 var email;
 var firstname;
 var userID;
@@ -27,8 +27,12 @@ function loginOnload(){
     }
     console.log(obj1);
     //set Values from cookies
+    
+    
+    
     if(obj1.Email != null){
         $('#email').val(formatValue(obj1.Email.replace('%40', '@'),true));
+        $('.checkbox-remember').prop('checked', 'checked');
     }
     $('#companyid').val(formatValue(obj1.CompanyID,true));
     $('#clientid').val(formatValue(obj1.DbName,true));
@@ -208,6 +212,9 @@ function numberWithCommas(x) {
 }
 
 function callback(response) {
+    
+    
+    
     
     
     
@@ -476,4 +483,11 @@ function hidePassword(){
     $('#Password').removeAttr('type', 'text');
     $('#Password').attr('type', 'password');
     
+}
+
+
+function openAccount(){
+    $("#iFrame").replaceWith('<iframe class ="adjust-iframe-margin " id ="iFrame" src ="./resources/modules/profile/profile.html" height ="99%" width = "100%" style ="border:0px;max-width: 100%;min-width:100%;width:100%;min-height:87vh;margin-top:-20px"></iframe>');
+    $('.module-name').empty();
+    $('.module-name').html('Account');
 }

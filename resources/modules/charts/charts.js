@@ -136,6 +136,7 @@ function chartscallback(response) {
             } 
         }
         charts();
+        $('.showbox').hide();
     }
 }
 

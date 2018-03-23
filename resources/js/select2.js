@@ -1847,7 +1847,7 @@
                     Search.prototype.render = function(decorated) {
                         var $search = $(
                                 '<li class="select2-search select2-search--inline">' +
-                                '<input class="select2-search__field" id ="select2-search" placeholder ="Press f2 for options" type="search" tabindex="-1"' +
+                                '<input class="select2-search__field" id ="select2-search"  type="search" tabindex="-1"' +
                                 ' autocomplete="off" autocorrect="off" autocapitalize="off"' +
                                 ' spellcheck="false" role="textbox" aria-autocomplete="list" />' +
                                 '</li>'
@@ -3896,7 +3896,7 @@
 
                         var $search = $(
                                 '<span class="select2-search select2-search--dropdown">' +
-                                '<input class="select2-search__field " id = "select2-search" placeholder ="Press f2 for options" type="search" tabindex="-1"' +
+                                '<input class="select2-search__field " id = "select2-search"  type="search" tabindex="-1"' +
                                 ' autocomplete="off" autocorrect="off" autocapitalize="off"' +
                                 ' spellcheck="false" role="textbox" />' +
                                 '</span>'

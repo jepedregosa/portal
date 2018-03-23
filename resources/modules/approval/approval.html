@@ -14,11 +14,14 @@ and open the template in the editor.
         <link href="../../css/bootstrap-select.css" media="all" rel="stylesheet" type="text/css" />
         <link href="../../css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css" />
         <link href="../../css/jquery-ui.css" media="all" rel="stylesheet" type="text/css" />
+        
         <script src="../../js/jquery-ui.js" type="text/javascript"></script>
         <script src="../../js/jquery-1.10.2.min.js" type="text/javascript"></script>
         <script src="../../js/bootstrap.min.js" type="text/javascript"></script>
 
         <script src="../../js/select2.js" type="text/javascript"></script>
+        <link href="../../css/xpull.css" media="all" rel="stylesheet" type="text/css" />
+        <script src="../../js/xpull.js" type="text/javascript"></script>
 
 
 
@@ -43,11 +46,11 @@ and open the template in the editor.
     <body onload="approvalOnload();">
         <div class="showbox">
             <div class="loader">
-              <svg class="circular" viewBox="25 25 50 50">
+                <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
-              </svg>
+                </svg>
             </div>
-          </div>
+        </div>
         <div class ="container-fluid">
             <input type="hidden" id ="global-batnbr">
             <input type="hidden" id ="global-reportid">
@@ -91,6 +94,15 @@ and open the template in the editor.
             </div>
             <div class ="div-form" id ="approval-records" style="padding:0 10px 10px 10px">
                 <br>
+                <div class="xpull">
+                    <div class="xpull__start-msg">
+                        <div class="xpull__start-msg-text"></div>
+                        <div class="xpull__arrow"></div>
+                    </div>
+                    <div class="xpull__spinner">
+                        <div class="xpull__spinner-circle"></div>
+                    </div>
+                </div>
                 <input type="hidden" id ="module-trantype">
                 <div class ="row">
                     <div class ="col-md-4" style ="">
@@ -131,7 +143,7 @@ and open the template in the editor.
                                                                 <li><button class =" btn-material inverse form-control " id ="process-reject-btn" onclick ="cancelRecordConfirm();"  disabled><span class ="fa fa-times" style ="color:red"></span><span> Reject </span>  </button></li>
                                                             </ul> 
                                                         </div>-->
-                            <div class="table-responsive-vertical shadow-z-1">
+                            <div class="table-responsive-vertical shadow-z-1 record-div">
                                 <table class ="table table-bordered table-condensed" id ="forapproval-records">
                                     <thead style ="font-size: 9pt">
                                         <!--<th>Approval Type</th>-->
@@ -208,8 +220,13 @@ and open the template in the editor.
 
                 <div class ="row" style ="">
                     <div class ="col-md-12" style ="">
-                        <button type ="text" class ="btn-material btn-sm" id="approvePerTranRec" ><span class ="fa fa-check"></span> Approve</button>
-                        <button type ="text" class ="btn-material red  btn-sm" id="rejectPerTranRec" ><span class ="fa fa-times"></span> Reject</button>
+                        <center>
+                            <!--<button class =" btn-material inverse " id ="reload-Page-btn" onclick ="closeRec();" style ="width: 90px"><span class ="fa fa-angle-left"></span><span> Back </span>  </button>-->
+                            <button class =" btn-material inverse " id ="approvePerTranRec" style ="width: 100px"><span class ="fa fa-check" style ="color: green"></span> Approve</button>
+                            <button class =" btn-material inverse " id ="rejectPerTranRec"  style ="width: 90px" ><span class ="fa fa-times" style ="color: red"></span> Reject</button>
+                        </center>
+
+
                     </div>
                 </div>
 
@@ -261,16 +278,11 @@ and open the template in the editor.
                         <br>
 
                         <div class ="row" style ="">
-                            <div class ="col-md-12" style ="">
+                            <div class ="col-md-7" style ="">
 
-							
-							<center>
-								<button class =" btn-material inverse " id ="reload-Page-btn"  onclick ="closeRec();" style ="width: 90px"><span class ="fa fa-angle-left"></span><span> Back </span>  </button>
-                                <button type ="text" class ="btn-material inverse" id="approvePerTran" ><span class ="fa fa-check"></span><span class ="fa fa-check" style ="color:green"></span><span> Approve </span>  </button>
-                                <button type ="text" class ="btn-material inverse" id="rejectPerTran" ><span class ="fa fa-times" style ="color:red"></span><span> Reject </span>  </button>
-                            
-							</center>
-							</div>
+                                <button type ="text" class ="btn-material helix helix-btn btn-sm" id="approvePerTran" ><span class ="fa fa-check"></span> Approve</button>
+                                <button type ="text" class ="btn-material helix helix-btn btn-sm" id="rejectPerTran" ><span class ="fa fa-times"></span> Reject</button>
+                            </div>
                             <div class ="col-md-4 col-md-offset-1" style ="-webkit-inline-box">
                                 <button class ="btn-material helix helix-btn btn-sm pull-right" onclick ="closemessageLookup();"><span class ="fa fa-ban"></span> Close</button>
                             </div>
@@ -301,8 +313,8 @@ and open the template in the editor.
         <footer>
             <div id ="toolbar-module" style ="bottom: 0;position: fixed;width: 100%;margin-bottom: 0;background: #fff;padding: 10px 0 10px 0">
                 <center>
-                    <button class =" btn-material inverse " id ="reload-Page-btn" onclick ="reloadPage()" style ="width: 90px"><span class ="fa fa-angle-left"></span><span> Back </span>  </button>
-                    <button class =" btn-material inverse " id ="process-approve-btn" onclick ="approveRecordConfirm()" style ="width: 100px" disabled><span class ="fa fa-check" style ="color:green"></span><span> Approve </span>  </button>
+                    <button class =" btn-material inverse " id ="reload-Page-btn" onclick ="reloadPage()();" style ="width: 90px"><span class ="fa fa-angle-left"></span><span> Back </span>  </button>
+                    <button class =" btn-material inverse " id ="process-approve-btn" onclick ="approveRecordConfirm()();" style ="width: 100px" disabled><span class ="fa fa-check" style ="color:green"></span><span> Approve </span>  </button>
                     <button class =" btn-material inverse " id ="process-reject-btn" onclick ="cancelRecordConfirm();"  style ="width: 90px" disabled><span class ="fa fa-times" style ="color:red"></span><span> Reject </span>  </button>
                 </center>
             </div>
